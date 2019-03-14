@@ -154,7 +154,7 @@ cluster_se <- function(file_list, fitted_model, ...) {
 		map(possibly(chunk_clusterse, otherwise=default_g_cov(fitted_model)), fitted_model=fitted_model, ...) %>%
 		reduce(combine_groups)
 
-	xxinv <- vcov(m) / group_cov_parts$e_hat
+	xxinv <- vcov(fitted_model) / group_cov_parts$e_hat
 	cluster_vcov <- xxinv %*% group_cov_parts$g_cov %*% xxinv
 	
 	group_cov_parts$xxinv <- xxinv
