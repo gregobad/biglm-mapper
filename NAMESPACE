@@ -3,4 +3,5 @@
 export(biglm_mapper)
 export(cluster_se)
 export(formula_gen)
+export(unite_levels)
 export(update_levels)

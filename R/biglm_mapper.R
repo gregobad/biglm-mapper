@@ -19,12 +19,19 @@ formula_gen <- function(lhs, rhs, icept=T) {
 
 ### functions to deal with varying factor levels in different data sets
 
-# get list, one element per variable, of union of levels of a set of variables in 
-# a set of files
+#' Get list, one element per variable, of union of levels of a set of variables in a set of files.
+#' @param file_list List of file names, in .rds format
+#' @param factor_vars Character vector of variable names to find union of levels for
+#' @return Named list containing the union of values appearing in each variable in `factor_vars` across all files in `file_list`.
+#' @examples
+#' unite_levels(files, c("factor_variable_1","factor_variable_2"))
+#' @export
 unite_levels <- function(file_list, factor_vars) {
-	file_list %>% 
+	levels_union <- file_list %>% 
 		map(~ . %>% readRDS %>% extract_levels(factor_vars)) %>%
 		reduce(list_union)
+	names(levels_union) <- factor_vars
+	levels_union
 }
 
 list_union <- function(l1,l2) map2(l1,l2,union)
