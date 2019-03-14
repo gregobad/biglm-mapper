@@ -1,0 +1,12 @@
+Package: biglmmapper
+Type: Package
+Title: biglm map reduce
+Version: 1.0
+Date: 2019-03-14
+Author: Greg Martin
+Maintainer: Greg Martin <gjmartin@stanford.edu>
+Description: Map-reduce with biglm, including clustered SE's
+License: GPL-3
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+Encoding: UTF-8
